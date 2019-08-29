@@ -1,13 +1,10 @@
-import memcache
-
-
-cache = memcache.Client(['127.0.0.1:11211'], debug=True)
+from exts import redis_store
 
 def set(key, value, timeout=60):
-    return cache.set(key, value, timeout)
+    return redis_store.set(key, value, timeout)
 
 def get(key):
-    return cache.get(key)
+    return redis_store.get(key)
 
 def delete(key):
-    return cache.delete(key)
+    return redis_store.delete(key)

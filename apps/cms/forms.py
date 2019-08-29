@@ -23,7 +23,9 @@ class ResetEmailForm(Form):
     def validate_captcha(self, field):
         captcha = field.data
         email = self.email.data
-        captcha_cache = zlcache.get(email)
+        captcha_cache = zlcache.get(email).decode()
+        print('获取验证码')
+        print(captcha_cache)
         if not captcha_cache or captcha.lower() != captcha_cache.lower():
             raise ValidationError('邮箱验证码错误！')
     def validate_email(self, field):
@@ -32,5 +34,9 @@ class ResetEmailForm(Form):
         if user.email == email:
             raise ValidationError('不能修改为当前使用的邮箱！')
 
-
+class BlockForm(Form):
+    name = StringField(validators=[InputRequired(message='请输入大楼名字'),Length(min=0, max=64, message='长度最大为64')])
+    address = StringField(validators=[InputRequired(message='请输入大楼地址'),Length(min=0, max=255, message='长度最大为255')])
+    floor_sum = IntegerField(validators=[InputRequired(message='请输入楼层总数')])
+    info = StringField(validators=[InputRequired(message='请输入大楼简介'),Length(min=0, max=255, message='长度最大为255')])
 

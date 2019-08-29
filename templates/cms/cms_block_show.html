@@ -1,0 +1,39 @@
+{% extends 'cms/cms_base.html' %}
+{% block title %}
+    大楼信息
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ static('cms/css/cms_block_show.css') }}">
+{% endblock %}
+{% block page_title %}
+    {{ self.title() }}
+    <span class="block_add">
+        <a href="{{ url_for('cms.block_add') }}"><button>添加</button></a>
+    </span>
+{% endblock %}
+
+{% block main_content %}
+    
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>办公楼名字</th>
+                <th>地址</th>
+                <th>简介</th>
+                <th>楼层总数</th>
+                <th>添加时间</th>
+            </tr>
+            {% for block in blocks %}
+            <tr>
+                <td>{{ block.name }}</td>
+                <td>{{ block.address }}</td>
+                <td>{{ block.info }}</td>
+                <td>{{ block.floor_sum }}</td>
+                <td>{{ block.addtime }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
+

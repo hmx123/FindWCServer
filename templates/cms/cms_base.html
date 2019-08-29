@@ -61,18 +61,18 @@
                     </ul>
                 </li>
 
-                      <li class="nav-group post-manage"><a href="#">帖子管理</a></li>
+                      <li class="nav-group post-manage"><a href="{{ url_for('cms.block_show') }}">办公楼</a></li>
 
-                      <li class="comments-manage"><a href="#">评论管理</a></li>
+                      <li class="comments-manage"><a href="{{ url_for('cms.floor_show') }}">楼层信息</a></li>
 
 
-                      <li class="board-manage"><a href="#">板块管理</a></li>
+                      <li class="board-manage"><a href="#">房间信息</a></li>
 
-                      <li class="nav-group user-manage"><a href="#">用户管理</a></li>
-
-                        <li class="nav-group cmsuser-manage"><a href="#">CMS用户管理</a></li>
-
-                      <li class="cmsrole-manage"><a href="#">CMS组管理</a></li>
+{#                      <li class="nav-group user-manage"><a href="#">用户管理</a></li>#}
+{##}
+{#                        <li class="nav-group cmsuser-manage"><a href="#">CMS用户管理</a></li>#}
+{##}
+{#                      <li class="cmsrole-manage"><a href="#">CMS组管理</a></li>#}
 
             </ul>
           </div>

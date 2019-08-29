@@ -28,4 +28,43 @@ class CMSUser(db.Model):
         result = check_password_hash(self.password, rew_password)
         return result
 
+# 大楼
+class Block(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(64), nullable=True)
+    address = db.Column(db.String(255), nullable=True)
+    addtime = db.Column(db.DATETIME, default=datetime.now)
+    info = db.Column(db.String(255))
+    floor_sum = db.Column(db.Integer)
+
+# 楼层
+class Floor(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    bid = db.Column(db.Integer, nullable=True)
+    floor_num = db.Column(db.Integer, nullable=True)
+    boy_num = db.Column(db.Integer, default=0)
+    girl_num = db.Column(db.Integer, default=0)
+    addtime = db.Column(db.DATETIME, default=datetime.now)
+
+    def block(self):
+        block = Block.query.get(self.bid)
+        return block
+
+# 单个房间
+class Room(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    fid = db.Column(db.Integer)
+    bid = db.Column(db.Integer)
+    room_num = db.Column(db.String(50))
+    gender = db.Column(db.Integer, default=0)
+    status = db.Column(db.Integer, default=0)
+    addtime = db.Column(db.DATETIME, default=datetime.now)
+
+    def block(self):
+        block = Block.query.get(self.bid)
+        return block
+
+    def floor(self):
+        floo = Floor.query.get(self.fid)
+        return floo
 

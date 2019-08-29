@@ -1,0 +1,14 @@
+.block_add button {
+    float: right;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.input-group .form-control {
+    width: 330%;
+}

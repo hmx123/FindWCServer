@@ -56,3 +56,36 @@ $(function () {
         });
     });
 });
+
+$(function () {
+    $("#blockaddsubmit").click(function (event) {
+        event.preventDefault();
+        var nameE = $("input[name='name']");
+        var addressE = $("input[name='address']");
+        var floor_sumE = $("input[name='floor_sum']");
+        var infoE = $("input[name='info']");
+
+        var name = nameE.val();
+        var address = addressE.val();
+        var floor_sum = floor_sumE.val();
+        var info = infoE.val();
+        zlajax.post({
+            'url': '/cms/block_add/',
+            'data': {'name': name, 'address': address, 'floor_sum': floor_sum, 'info': info},
+            'success': function (data) {
+                if (data['code'] == 200) {
+                    nameE.val("");
+                    addressE.val("");
+                    floor_sumE.val("");
+                    infoE.val("");
+                    zlalert.alertSuccessToast('恭喜！添加大楼成功');
+                } else {
+                    zlalert.alertInfo(data['message']);
+                }
+            },
+            'fail': function (error) {
+                zlalert.alertNetworkError();
+            }
+        });
+    });
+});
