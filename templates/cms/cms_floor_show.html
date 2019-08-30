@@ -4,6 +4,7 @@
 {% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ static('cms/css/cms_block_show.css') }}">
+    <script src="{{ static('cms/js/resetemail.js')}}"></script>
 {% endblock %}
 {% block page_title %}
     {{ self.title() }}
@@ -13,6 +14,7 @@
 {% endblock %}
 
 {% block main_content %}
+
 
     <table class="table table-bordered">
         <tbody>
@@ -29,8 +31,16 @@
                 <td>{{ floor.block().name }}</td>
                 <td>{{ floor.block().address }}</td>
                 <td>{{ floor.floor_num }}</td>
-                <td>{{ floor.boy_num }}</td>
-                <td>{{ floor.girl_num }}</td>
+                <td>{{ floor.boy_num }}
+                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom()"></span>
+                    <span class="glyphicon"> &nbsp;</span>
+                    <span class="glyphicon glyphicon-minus tt" aria-hidden="true"></span>
+                </td>
+                <td>{{ floor.girl_num }}
+                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true"></span>
+                    <span class="glyphicon"> &nbsp;</span>
+                    <span class="glyphicon glyphicon-minus tt" aria-hidden="true"></span>
+                </td>
                 <td>{{ floor.addtime }}</td>
             </tr>
             {% endfor %}

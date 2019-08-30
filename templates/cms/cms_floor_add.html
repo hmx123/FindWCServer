@@ -3,7 +3,7 @@
     楼层新增
 {% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{{ static('cms/css/cms_block_show.css') }}">
+    <link rel="stylesheet" href="{{ static('cms/css/cms_floor_add.css') }}">
     <script src="{{ static('cms/js/resetemail.js')}}"></script>
 {% endblock %}
 {% block page_title %}
@@ -13,63 +13,50 @@
 {% block main_content %}
 <form method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <div class="form-container">
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">大楼名称-地址</span>
-                    <div class="dropdown">
-                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Dropdown
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </div>
+                    <select name="bid" id="" onchange="floornum(this.value)">
+                        <option value="">请选择大楼</option>
+                        {% for block in blocks %}
+                            <option value="{{ block.id }}" >{{ block.name }}-{{ block.address }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
-            </div>
-
             <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">新增楼层</span>
-                    <div class="dropdown">
-                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        1
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                          <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                          <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                          <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                          <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                      </ul>
-                    </div>
+                    <select name="floor_num" id="floors">
+                        <option value="" >请选择楼层</option>
+                    </select>
                 </div>
             </div>
+
+            <!--
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">boy个数</span>
+                    <select name="boynum" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">girl个数</span>
+                    <select name="girlnum" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+            -->
 
 
             <div class="form-group">

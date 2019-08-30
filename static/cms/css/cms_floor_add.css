@@ -1,0 +1,11 @@
+.input-group select {
+    height: 36px;
+    min-width: 60px;
+    border-radius: 0 5px 5px 0;
+}
+.input-group select textarea{
+    margin-left: 10px;
+    font-size: 14px;
+    text-align: center;
+
+}

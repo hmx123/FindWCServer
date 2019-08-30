@@ -7,7 +7,7 @@ from flask_mail import Message
 from apps.cms.decorators import login_required
 from exts import db, mail
 from utils import restful, zlcache
-from .forms import LoginForm, ResetpwdForm, ResetEmailForm, BlockForm
+from .forms import LoginForm, ResetpwdForm, ResetEmailForm, BlockForm, FloorForm
 from .models import CMSUser, Block, Floor
 import config
 
@@ -137,17 +137,38 @@ class BlockAdd(views.MethodView):
 
 # 楼层展示
 @bp.route('/floor_show/')
+@login_required
 def floor_show():
-    floors = Floor.query.all()
+    floors = Floor.query.order_by(Floor.bid).order_by(Floor.floor_num).all()
     return render_template('cms/cms_floor_show.html', floors=floors)
 
 class FloorAdd(views.MethodView):
     decorators = [login_required]
     def get(self):
-        return render_template('cms/cms_floor_add.html')
+        blocks = Block.query.all()
+        return render_template('cms/cms_floor_add.html',blocks=blocks)
     def post(self):
-        pass
-
+        form = FloorForm(request.form)
+        if form.validate():
+            bid = form.bid.data
+            floor_num = form.floor_num.data
+            # boynum = form.boynum.data
+            # girlnum = form.girlnum.data
+            floor = Floor(bid=bid, floor_num=floor_num)
+            db.session.add(floor)
+            db.session.commit()
+            return restful.success()
+        else:
+            return restful.params_error(form.errors.popitem()[1][0])
+# 根据大楼获取总共楼层
+@bp.route('/floor_sum/', methods=['POST'])
+@login_required
+def floor_sum():
+    block_id = request.form['blockid']
+    floor_sum = Block.query.get(block_id).floor_sum
+    floor_had = Floor.query.filter_by(bid=block_id).all()
+    floor_numlist = [x.floor_num for x in floor_had]
+    return jsonify({'floor_sum':floor_sum, 'floor_had': floor_numlist})
 
 
 bp.add_url_rule('/login/', view_func=LoginView.as_view('login'))

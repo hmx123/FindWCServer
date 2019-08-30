@@ -40,3 +40,8 @@ class BlockForm(Form):
     floor_sum = IntegerField(validators=[InputRequired(message='请输入楼层总数')])
     info = StringField(validators=[InputRequired(message='请输入大楼简介'),Length(min=0, max=255, message='长度最大为255')])
 
+class FloorForm(Form):
+    bid = IntegerField(validators=[InputRequired(message='请输入大楼')])
+    floor_num = IntegerField(validators=[InputRequired(message='请输入楼层')])
+    # boynum = IntegerField(validators=[InputRequired(message='请输入男个数')])
+    # girlnum = IntegerField(validators=[InputRequired(message='请输入女个数')])

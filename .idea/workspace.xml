@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c508ddcb-49d8-4c4a-8f1e-e528a8d277e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/cms/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/cms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/cms/css/cms_block_show.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/cms/css/cms_block_show.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/cms/js/resetemail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/cms/js/resetemail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cms/cms_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cms/cms_floor_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_floor_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cms/cms_floor_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_floor_show.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +113,7 @@
       <workItem from="1566914455509" duration="3409000" />
       <workItem from="1566956227194" duration="22745000" />
       <workItem from="1567042519387" duration="21203000" />
-      <workItem from="1567129856143" duration="534000" />
+      <workItem from="1567129856143" duration="20678000" />
     </task>
     <servers />
   </component>
