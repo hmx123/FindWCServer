@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c508ddcb-49d8-4c4a-8f1e-e528a8d277e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Perfect_Find.py" beforeDir="false" afterPath="$PROJECT_DIR$/Perfect_Find.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/cms/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/cms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/cms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/cms/js/resetemail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/cms/js/resetemail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cms/cms_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/zlcache.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/zlcache.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +105,8 @@
       <updated>1566914430031</updated>
       <workItem from="1566914455509" duration="3409000" />
       <workItem from="1566956227194" duration="22745000" />
-      <workItem from="1567042519387" duration="21082000" />
+      <workItem from="1567042519387" duration="21203000" />
+      <workItem from="1567129856143" duration="534000" />
     </task>
     <servers />
   </component>
