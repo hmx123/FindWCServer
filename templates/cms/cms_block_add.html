@@ -1,0 +1,54 @@
+{% extends 'cms/cms_base.html' %}
+{% block title %}
+    大楼新增
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ static('cms/css/cms_block_show.css') }}">
+    <script src="{{ static('cms/js/resetemail.js')}}"></script>
+{% endblock %}
+{% block page_title %}
+    {{ self.title() }}
+{% endblock %}
+
+{% block main_content %}
+<form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="form-container">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">大楼名称</span>
+                    <input type="text" class="form-control" name="name" placeholder="请输入大楼名称">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">大楼地址</span>
+                    <input type="text" class="form-control" name="address" placeholder="请输入大楼地址">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">楼层总数</span>
+                    <input type="text" class="form-control" name="floor_sum" placeholder="请输入楼层总数">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" >大楼简介</span>
+                    <input type="text" class="form-control" name="info" placeholder="请输入大楼简介" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" id="blockaddsubmit">立即保存</button>
+            </div>
+
+
+        </div>
+    </form>
+
+{% endblock %}
+

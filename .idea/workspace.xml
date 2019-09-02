@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c508ddcb-49d8-4c4a-8f1e-e528a8d277e8" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/FindWC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FindWC.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -12,6 +13,16 @@
       <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/versions/b412a1286d84_.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/versions/d4e23258afd6_.py" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/cms/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/cms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/cms/css/cms_block_show.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/cms/css/cms_block_show.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/cms/js/resetemail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/cms/js/resetemail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cms/cms_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cms/cms_floor_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_floor_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cms/cms_floor_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_floor_show.html" afterDir="false" />
+>>>>>>> 0916a9a42960cb83c948b505f8afe3733eabec4a
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +102,11 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog-模板" />
+>>>>>>> 0916a9a42960cb83c948b505f8afe3733eabec4a
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -165,9 +180,15 @@
       <option name="presentableId" value="Default" />
       <updated>1566914430031</updated>
       <workItem from="1566914455509" duration="3409000" />
+<<<<<<< HEAD
       <workItem from="1566956227194" duration="22525000" />
       <workItem from="1566997000800" duration="360000" />
       <workItem from="1567172018193" duration="195000" />
+=======
+      <workItem from="1566956227194" duration="22745000" />
+      <workItem from="1567042519387" duration="21203000" />
+      <workItem from="1567129856143" duration="20678000" />
+>>>>>>> 0916a9a42960cb83c948b505f8afe3733eabec4a
     </task>
     <servers />
   </component>
@@ -209,6 +230,7 @@
         <entry key="MAIN">
           <value>
             <State>
+<<<<<<< HEAD
               <option name="RECENTLY_FILTERED_USER_GROUPS">
                 <collection />
               </option>
@@ -230,6 +252,10 @@
         <entry key="User">
           <value>
             <list />
+=======
+              <option name="COLUMN_ORDER" />
+            </State>
+>>>>>>> 0916a9a42960cb83c948b505f8afe3733eabec4a
           </value>
         </entry>
       </map>

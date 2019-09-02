@@ -1,0 +1,71 @@
+{% extends 'cms/cms_base.html' %}
+{% block title %}
+    楼层新增
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ static('cms/css/cms_floor_add.css') }}">
+    <script src="{{ static('cms/js/resetemail.js')}}"></script>
+{% endblock %}
+{% block page_title %}
+    {{ self.title() }}
+{% endblock %}
+
+{% block main_content %}
+<form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">大楼名称-地址</span>
+                    <select name="bid" id="" onchange="floornum(this.value)">
+                        <option value="">请选择大楼</option>
+                        {% for block in blocks %}
+                            <option value="{{ block.id }}" >{{ block.name }}-{{ block.address }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">新增楼层</span>
+                    <select name="floor_num" id="floors">
+                        <option value="" >请选择楼层</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">boy个数</span>
+                    <select name="boynum" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">girl个数</span>
+                    <select name="girlnum" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+            -->
+
+
+            <div class="form-group">
+                <button class="btn btn-primary" id="flooraddsubmit">立即保存</button>
+            </div>
+
+
+        </div>
+    </form>
+
+{% endblock %}
+

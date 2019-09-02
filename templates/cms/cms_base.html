@@ -61,26 +61,51 @@
                     </ul>
                 </li>
 
-                      <li class="nav-group post-manage"><a href="#">帖子管理</a></li>
+                      <li class="nav-group post-manage"><a href="{{ url_for('cms.block_show') }}">办公楼</a></li>
 
-                      <li class="comments-manage"><a href="#">评论管理</a></li>
+                      <li class="comments-manage"><a href="{{ url_for('cms.floor_show') }}">楼层信息</a></li>
 
 
-                      <li class="board-manage"><a href="#">板块管理</a></li>
+                      <li class="board-manage"><a href="#">房间信息</a></li>
 
-                      <li class="nav-group user-manage"><a href="#">用户管理</a></li>
-
-                        <li class="nav-group cmsuser-manage"><a href="#">CMS用户管理</a></li>
-
-                      <li class="cmsrole-manage"><a href="#">CMS组管理</a></li>
+{#                      <li class="nav-group user-manage"><a href="#">用户管理</a></li>#}
+{##}
+{#                        <li class="nav-group cmsuser-manage"><a href="#">CMS用户管理</a></li>#}
+{##}
+{#                      <li class="cmsrole-manage"><a href="#">CMS组管理</a></li>#}
 
             </ul>
           </div>
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main addroom" >
             <h1>{% block page_title %}{% endblock %}</h1>
               <div class="main_content">
                   {% block main_content %}{% endblock %}
               </div>
+          </div>
+          <div id="addroombgc" onclick="addroombgchid(this)">
+            <div id="addroom" >
+                <div class="title">请选择样式</div>
+                <div class="wctype">
+                    <div>
+                        <img src="{{ static('cms/images/ma.png') }}" alt="">
+                        <input type="radio" name="wctype">
+                    </div>
+                    <div>
+                        <img src="{{ static('cms/images/dun.png') }}" alt="">
+                        <input type="radio" name="wctype">
+                    </div>
+                    
+                </div>
+                <div class="floot">
+                    <div>
+                        <button>取消</button>
+                        <button>确定</button>
+                    </div>
+
+                </div>
+
+
+            </div>
           </div>
       </div>
     </div>
