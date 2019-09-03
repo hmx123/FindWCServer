@@ -157,11 +157,40 @@ $(function () {
 });
 
 //新增房间
-function addroom() {
-    console.log(111111111);
+function addroom(e, type) {
+    console.dir(e);
     $("#addroombgc").css("display","block");
     $("#addroom").css("display","block");
+    //取消
+    $("#cacle").click(function () {
+        $("#addroombgc").css("display","none");
+        $("#addroom").css("display","none");
+    });
+    $("#confirm").click(function () {
+        // $("#addroombgc").css("display","none");
+        // $("#addroom").css("display","none");
+        var wctype = $("input[name='wctype']:checked").val();
+        //向后台发送请求
+        zlajax.post({
+            'url': '/cms/floor_sum/',
+            'data': {'blockid': value},
+            'success': function (data) {
+            }
+        })
+
+    })
+
 
 }
+function addroombgchid() {
+    $("#addroombgc").css("display","none");
+    $("#addroom").css("display","none");
+}
+$(function () {
+    $("#addroom").click(function (e) {
+        e.stopPropagation();
+    });
+});
+
 
 

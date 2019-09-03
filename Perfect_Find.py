@@ -1,3 +1,4 @@
+# coding=utf-8
 from flask import Flask
 from apps.cms import bp as cms_bp
 from apps.front import bp as front_bp

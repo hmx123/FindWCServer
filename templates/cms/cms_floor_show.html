@@ -4,7 +4,7 @@
 {% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ static('cms/css/cms_block_show.css') }}">
-    <script src="{{ static('cms/js/resetemail.js')}}"></script>
+    <script src="{{ static('cms/js/resetemail.js') }}"></script>
 {% endblock %}
 {% block page_title %}
     {{ self.title() }}
@@ -18,34 +18,62 @@
 
     <table class="table table-bordered">
         <tbody>
+        <tr>
+            <th>办公楼名字</th>
+            <th>地址</th>
+            <th>楼层</th>
+            <th>当前楼层man</th>
+            <th>当前楼层girl</th>
+            <th>添加时间</th>
+        </tr>
+        {% for floor in floors %}
             <tr>
-                <th>办公楼名字</th>
-                <th>地址</th>
-                <th>楼层</th>
-                <th>当前楼层man</th>
-                <th>当前楼层girl</th>
-                <th>添加时间</th>
-            </tr>
-            {% for floor in floors %}
-            <tr>
+
                 <td>{{ floor.block().name }}</td>
                 <td>{{ floor.block().address }}</td>
                 <td>{{ floor.floor_num }}</td>
                 <td>{{ floor.boy_num }}
-                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom()"></span>
+                    <input type="hidden" value="{{ floor.block().id }}" name="bid">
+                    <input type="hidden" value="{{ floor.id }}" name="fid">
+                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom(this,'boy')"></span>
                     <span class="glyphicon"> &nbsp;</span>
-                    <span class="glyphicon glyphicon-minus tt" aria-hidden="true"></span>
                 </td>
                 <td>{{ floor.girl_num }}
-                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom(this,'girl')"></span>
                     <span class="glyphicon"> &nbsp;</span>
-                    <span class="glyphicon glyphicon-minus tt" aria-hidden="true"></span>
                 </td>
                 <td>{{ floor.addtime }}</td>
             </tr>
-            {% endfor %}
+        {% endfor %}
 
         </tbody>
     </table>
+{% endblock %}
+{% block othercont %}
+    <div id="addroombgc" onclick="addroombgchid(this)">
+        <div id="addroom">
+            <div class="title">请选择样式</div>
+            <div class="wctype">
+                <div>
+                    <img src="{{ static('cms/images/ma.png') }}" alt="">
+                    <input type="radio" name="wctype" value="0">
+                </div>
+                <div>
+                    <img src="{{ static('cms/images/dun.png') }}" alt="">
+                    <input type="radio" name="wctype" value="1">
+                </div>
+
+            </div>
+            <div class="floot">
+                <div>
+                    <button id="cacle">取消</button>
+                    <button id="confirm" >确定</button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
 {% endblock %}
 

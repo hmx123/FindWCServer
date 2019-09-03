@@ -1,3 +1,4 @@
+# coding=utf-8
 import random
 
 from flask import Blueprint, views, render_template, request, session, jsonify, g

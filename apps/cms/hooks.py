@@ -1,3 +1,4 @@
+# coding=utf-8
 from .views import bp
 import config
 from flask import session, g
