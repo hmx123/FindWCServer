@@ -8,8 +8,8 @@ from flask_mail import Message
 from apps.cms.decorators import login_required
 from exts import db, mail
 from utils import restful, zlcache
-from .forms import LoginForm, ResetpwdForm, ResetEmailForm, BlockForm, FloorForm
-from .models import CMSUser, Block, Floor
+from .forms import LoginForm, ResetpwdForm, ResetEmailForm, BlockForm, FloorForm, RoomForm
+from .models import CMSUser, Block, Floor, Room
 import config
 
 bp = Blueprint('cms', __name__, url_prefix='/cms')
@@ -161,6 +161,27 @@ class FloorAdd(views.MethodView):
             return restful.success()
         else:
             return restful.params_error(form.errors.popitem()[1][0])
+
+class RoomAdd(views.MethodView):
+    decorators = [login_required]
+    # 'type': type, 'bid': bid, 'fid': fid, 'wctype': wctype, 'equipnum': equipnum
+    def post(self):
+        form = RoomForm(request.form)
+        if form.validate():
+            type = request.form.get('type')
+            bid = request.form.get('bid')
+            fid = request.form.get('fid')
+            wctype = form.wctype.data
+            equipnum = form.equipnum.data
+            room = Room(fid=fid,bid=bid,room_num=equipnum,gender=type,wctype=wctype)
+            # 让当前楼层房间数加1
+            db.session.add(room)
+            db.session.commit()
+            return restful.success()
+        else:
+            return restful.params_error(form.errors.popitem()[1][0])
+
+
 # 根据大楼获取总共楼层
 @bp.route('/floor_sum/', methods=['POST'])
 @login_required
@@ -177,3 +198,4 @@ bp.add_url_rule('/resetpwd/', view_func=ResetPwdView.as_view('resetpwd'), strict
 bp.add_url_rule('/resetemail/', view_func=ResetEmail.as_view('resetemail'))
 bp.add_url_rule('/block_add/', view_func=BlockAdd.as_view('block_add'))
 bp.add_url_rule('/floor_add/', view_func=FloorAdd.as_view('floor_add'))
+bp.add_url_rule('/room_add/', view_func=RoomAdd.as_view('room_add'))

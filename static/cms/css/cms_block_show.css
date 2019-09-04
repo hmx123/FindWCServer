@@ -41,11 +41,15 @@
     background-color: white;
     display:none;
 }
-#addroom .title {
+#addroom .title1 {
     width: 100%;
-    font-size: 23px;
+    font-size: 14px;
     text-align: center;
-
+}
+#addroom .title2 {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
 }
 #addroom .wctype div img{
     width: 140px;

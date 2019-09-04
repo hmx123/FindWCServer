@@ -157,8 +157,8 @@ $(function () {
 });
 
 //新增房间
-function addroom(e, type) {
-    console.dir(e);
+function addroom(e, type, bid, fid) {
+    console.log(bid, fid);
     $("#addroombgc").css("display","block");
     $("#addroom").css("display","block");
     //取消
@@ -166,15 +166,25 @@ function addroom(e, type) {
         $("#addroombgc").css("display","none");
         $("#addroom").css("display","none");
     });
-    $("#confirm").click(function () {
-        // $("#addroombgc").css("display","none");
-        // $("#addroom").css("display","none");
+    $("#confirm").unbind('click').click(function () {
+        console.log(111111);
+        $("#addroombgc").css("display","none");
+        $("#addroom").css("display","none");
         var wctype = $("input[name='wctype']:checked").val();
+        var equipnum = $("input[name='equipnum']").val();
         //向后台发送请求
         zlajax.post({
-            'url': '/cms/floor_sum/',
-            'data': {'blockid': value},
+            'url': '/cms/room_add/',
+            'data': {'type': type, 'bid': bid, 'fid': fid, 'wctype': wctype, 'equipnum': equipnum},
             'success': function (data) {
+                if (data['code'] == 200) {
+                    zlalert.alertSuccessToast('恭喜！添加房间成功');
+                } else {
+                    zlalert.alertInfo(data['message']);
+                }
+            },
+            'fail': function (error) {
+                zlalert.alertNetworkError();
             }
         })
 

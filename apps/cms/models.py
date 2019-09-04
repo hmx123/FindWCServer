@@ -59,6 +59,7 @@ class Room(db.Model):
     room_num = db.Column(db.String(50))
     gender = db.Column(db.Integer, default=0)
     status = db.Column(db.Integer, default=0)
+    wctype = db.Column(db.Integer, default=0)
     addtime = db.Column(db.DATETIME, default=datetime.now)
 
     def block(self):

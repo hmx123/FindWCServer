@@ -33,13 +33,13 @@
                 <td>{{ floor.block().address }}</td>
                 <td>{{ floor.floor_num }}</td>
                 <td>{{ floor.boy_num }}
-                    <input type="hidden" value="{{ floor.block().id }}" name="bid">
-                    <input type="hidden" value="{{ floor.id }}" name="fid">
-                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom(this,'boy')"></span>
+                    <input type="hidden" value="" name="bid">
+                    <input type="hidden" value="" name="fid">
+                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom(this,'0',{{ floor.block().id }},{{ floor.id }})"></span>
                     <span class="glyphicon"> &nbsp;</span>
                 </td>
                 <td>{{ floor.girl_num }}
-                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom(this,'girl')"></span>
+                    <span class="glyphicon glyphicon-plus tt" aria-hidden="true" onclick="addroom(this,'1',{{ floor.block().id }},{{ floor.id }})"></span>
                     <span class="glyphicon"> &nbsp;</span>
                 </td>
                 <td>{{ floor.addtime }}</td>
@@ -52,7 +52,8 @@
 {% block othercont %}
     <div id="addroombgc" onclick="addroombgchid(this)">
         <div id="addroom">
-            <div class="title">请选择样式</div>
+            <div class="title1"><span>设备编号：</span><input type="text" name="equipnum"></div>
+            <div class="title2">请选择样式</div>
             <div class="wctype">
                 <div>
                     <img src="{{ static('cms/images/ma.png') }}" alt="">

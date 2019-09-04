@@ -46,3 +46,11 @@ class FloorForm(Form):
     floor_num = IntegerField(validators=[InputRequired(message='请输入楼层')])
     # boynum = IntegerField(validators=[InputRequired(message='请输入男个数')])
     # girlnum = IntegerField(validators=[InputRequired(message='请输入女个数')])
+
+class RoomForm(Form):
+
+    wctype = IntegerField(validators=[InputRequired(message='请选择样式')])
+    equipnum = StringField(validators=[InputRequired(message='请输入设备编号')])
+
+
+
