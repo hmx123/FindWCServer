@@ -189,18 +189,22 @@ function addroom(e, type, bid, fid) {
         })
 
     })
-
-
 }
+
 function addroombgchid() {
     $("#addroombgc").css("display","none");
     $("#addroom").css("display","none");
 }
+
 $(function () {
     $("#addroom").click(function (e) {
         e.stopPropagation();
     });
 });
+
+
+
+
 
 
 
