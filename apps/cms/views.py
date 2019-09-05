@@ -193,6 +193,47 @@ def floor_sum():
     return jsonify({'floor_sum':floor_sum, 'floor_had': floor_numlist})
 
 
+# 根据大楼获取添加过的楼层
+@bp.route('/floor_had/', methods=['POST'])
+@login_required
+def floor_had():
+    block_id = request.form['blockid']
+    floor_hads = Floor.query.filter_by(bid=block_id).all()
+
+    floor_numlist = [[x.floor_num, x.id] for x in floor_hads]
+    return jsonify({'floor_had': floor_numlist})
+
+# 房间信息展示
+@bp.route('/room_show/')
+@login_required
+def room_show():
+    blocks = Block.query.all()
+    return render_template('cms/cms_room_show.html', blocks=blocks)
+
+# 根据传过来的bid fid 获取房间
+@bp.route('/roomshowapi/', methods=['POST'])
+@login_required
+def roomshowapi():
+    bid = request.form.get('bid')
+    fid = request.form.get('fid')
+    rooms = Room.query.filter_by(bid=bid, fid=fid).order_by(Room.gender).order_by(Room.room_num).all()
+    room_list = []
+    for room in rooms:
+        room_list.append({
+            'room_num': room.room_num, 'gender': room.gender, 'status': room.status, 'addtime': str(room.addtime), 'wctype': room.wctype
+        })
+    return jsonify({'rooms': room_list})
+
+# 更改房间的使用状态
+@bp.route('/changestatu/', methods=['POST'])
+def changestatu():
+    rid = request.form.get('rid')
+    room_num = request.form.get('room_num')
+    status = request.form.get('status')
+
+
+
+
 bp.add_url_rule('/login/', view_func=LoginView.as_view('login'))
 bp.add_url_rule('/resetpwd/', view_func=ResetPwdView.as_view('resetpwd'), strict_slashes=False)
 bp.add_url_rule('/resetemail/', view_func=ResetEmail.as_view('resetemail'))
