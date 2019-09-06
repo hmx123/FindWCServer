@@ -35,12 +35,12 @@ $(document).ready(function(){
                 //根据房间状态选择图标 0男 1女 0蹲 1马 0未使用 1使用
                 if (rooms[i].gender){ var gender='女'}else{ var gender='男'}
                 if (rooms[i].wctype){ var wctype="../../static/cms/images/ma.png"}else{ var wctype="../../static/cms/images/dun.png"}
-                if (rooms[i].status){ var status="checked"}else{ var status=""}
+                if (rooms[i].status){ var status="lcs_on"}else{ var status="lcs_off"}
                 var tr = $("<tr></tr>");
                 tr.append("<td>"+rooms[i].room_num+"</td>");
                 tr.append("<td>"+gender+"</td>");
                 tr.append('<td class="roomstyle"><img src="'+wctype+'"></td>');
-                tr.append('<td><div class="lcs_wrap"><input type="checkbox" name="check-3" value="6" class="lcs_check lcs_tt1" checked="'+status+'" autocomplete="off"><div class="lcs_switch  lcs_on lcs_checkbox_switch"><div class="lcs_cursor"></div><div class="lcs_label lcs_label_on">ON</div><div class="lcs_label lcs_label_off">OFF</div></div></div></td>');
+                tr.append('<td><div class="lcs_wrap"><input type="checkbox" name="check-3" value="'+ rooms[i].roomid +'" class="lcs_check lcs_tt1" autocomplete="off"><div class="lcs_switch  '+ status +' lcs_checkbox_switch"><div class="lcs_cursor"></div><div class="lcs_label lcs_label_on">ON</div><div class="lcs_label lcs_label_off">OFF</div></div></div></td>');
                 tr.append("<td>00:00:00</td>");
                 tr.append("<td>"+rooms[i].addtime+"</td>");
                 tbody.append(tr);
@@ -55,19 +55,22 @@ $(document).ready(function(e) {
 	$('input').lc_switch();
 	// triggered each time a field changes status
 	$('body').delegate('.lcs_check', 'lcs-statuschange', function() {
-		var status = ($(this).is(':checked')) ? 'checked' : 'unchecked';
-		console.log('field changed status: '+ status );
-	});
+		var status = ($(this).is(':checked')) ? 1 : 0;
+		if (status){
 
-	// triggered each time a field is checked
-	$('body').delegate('.lcs_check', 'lcs-on', function() {
-		console.log('field is checked');
-	});
+        }
+		//发送请求更改房间状态
+        var roomid = $(this).val();
+		zlajax.post({
+            'url': '/cms/changestatu/',
+            'data': {'roomid': roomid, 'status': status},
+            'success': function (data) {
 
-
-	// triggered each time a is unchecked
-	$('body').delegate('.lcs_check', 'lcs-off', function() {
-		console.log('field is unchecked');
+            },
+            'fail': function () {
+                zlalert.alertNetworkError();
+            }
+        })
 	});
 });
 

@@ -1,5 +1,6 @@
 # coding=utf-8
 import random
+import time
 
 from flask import Blueprint, views, render_template, request, session, jsonify, g
 from flask import url_for, redirect
@@ -106,8 +107,6 @@ def email_captcha():
     except:
         return restful.server_error()
     zlcache.set(email, captcha)
-    print('设置验证码')
-    print(captcha)
     return restful.success()
 
 # 大楼展示
@@ -219,17 +218,37 @@ def roomshowapi():
     rooms = Room.query.filter_by(bid=bid, fid=fid).order_by(Room.gender).order_by(Room.room_num).all()
     room_list = []
     for room in rooms:
+        # 根据房间的状态设置使用时间
+        status = room.status
+        if status == 1:
+            # 从缓存中获取
+            use_time = zlcache.get(room.room_num)
         room_list.append({
-            'room_num': room.room_num, 'gender': room.gender, 'status': room.status, 'addtime': str(room.addtime), 'wctype': room.wctype
+            'roomid': room.id, 'room_num': room.room_num, 'gender': room.gender, 'status': room.status, 'addtime': str(room.addtime), 'wctype': room.wctype
         })
     return jsonify({'rooms': room_list})
 
 # 更改房间的使用状态
 @bp.route('/changestatu/', methods=['POST'])
+@login_required
 def changestatu():
-    rid = request.form.get('rid')
-    room_num = request.form.get('room_num')
+    rid = request.form.get('roomid')
     status = request.form.get('status')
+    room = Room.query.get(rid)
+    room_num = room.room_num
+    # 如果是使用状态 设置redis room_num  当前时间戳 115.7407284天过期
+    if status == '1':
+        timestamp = int(time.time())
+        zlcache.set(room_num, timestamp, 9999999)
+        room.status = 1
+        db.session.add(room)
+        db.session.commit()
+    elif status == '0':
+        room.status = 0
+        db.session.add(room)
+        db.session.commit()
+        zlcache.delete(room_num)
+    return jsonify({'code': 200})
 
 
 
