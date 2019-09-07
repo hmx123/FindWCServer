@@ -1,9 +1,5 @@
 # coding=utf-8
-<<<<<<< HEAD
-from flask import Blueprint, jsonify, request
-=======
-import time
->>>>>>> e6b9c635713d49013e01744fff6dca90cb78c9e8
+
 
 from flask import Blueprint, jsonify
 from utils import restful, zlcache
