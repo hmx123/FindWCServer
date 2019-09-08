@@ -222,9 +222,17 @@ def roomshowapi():
         status = room.status
         if status == 1:
             # 从缓存中获取
-            use_time = zlcache.get(room.room_num)
+            use_time = int(zlcache.get(room.room_num))
+            now_time = int(time.time())
+            time_diff = now_time - use_time
+            m, s = divmod(time_diff, 60)
+            h, m = divmod(m, 60)
+            timestr = "%02d:%02d:%02d" % (h, m, s)
+            print(timestr)
+        else:
+            timestr = 0
         room_list.append({
-            'roomid': room.id, 'room_num': room.room_num, 'gender': room.gender, 'status': room.status, 'addtime': str(room.addtime), 'wctype': room.wctype
+            'roomid': room.id, 'room_num': room.room_num, 'gender': room.gender, 'status': room.status, 'addtime': str(room.addtime), 'wctype': room.wctype, 'use_time': timestr
         })
     return jsonify({'rooms': room_list})
 

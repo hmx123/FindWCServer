@@ -1,7 +1,7 @@
 # coding=utf-8
+import time
 
-
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from utils import restful, zlcache
 from apps.cms.models import Room, Floor
 
