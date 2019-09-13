@@ -234,7 +234,6 @@ def roomshowapi():
             m, s = divmod(time_diff, 60)
             h, m = divmod(m, 60)
             timestr = "%02d:%02d:%02d" % (h, m, s)
-            print(timestr)
         else:
             timestr = 0
         room_list.append({
