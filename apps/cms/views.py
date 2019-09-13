@@ -173,7 +173,13 @@ class RoomAdd(views.MethodView):
             wctype = form.wctype.data
             equipnum = form.equipnum.data
             room = Room(fid=fid,bid=bid,room_num=equipnum,gender=type,wctype=wctype)
-            # 让当前楼层房间数加1
+            # 让当前楼层房间数加1  0男  1女
+            floor = Floor.query.get(fid)
+            if type == '0':
+                floor.boy_num = floor.boy_num + 1
+            elif type == '1':
+                floor.girl_num = floor.girl_num + 1
+            db.session.add(floor)
             db.session.add(room)
             db.session.commit()
             return restful.success()
