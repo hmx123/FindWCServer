@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from multiprocessing import cpu_count
 
 bind = ["127.0.0.1:5000"]  # 线上环境不会开启在公网 IP 下，一般使用内网 IP
 daemon = True  # 是否开启守护进程模式

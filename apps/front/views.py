@@ -2,8 +2,11 @@
 import time
 
 from flask import Blueprint, jsonify, request
+<<<<<<< HEAD
 
 from exts import db
+=======
+>>>>>>> 13d32382100e6555f82fb7c1b68a97773da8c8e2
 from utils import restful, zlcache
 from apps.cms.models import Room, Floor
 
