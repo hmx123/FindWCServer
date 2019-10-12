@@ -17,6 +17,6 @@ MAIL_DEBUG = False
 MAIL_USERNAME = "menx_mail@126.com"
 MAIL_PASSWORD = "hmxmail126"
 MAIL_DEFAULT_SENDER = "menx_mail@126.com"
-REDIS_URL = "redis://:root@localhost:6379/0"
+REDIS_URL = "redis://:@localhost:6379/0"
 
 
